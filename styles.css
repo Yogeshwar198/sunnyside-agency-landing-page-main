@@ -1,32 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap");
-
-
-// ----------------- SCSS Variables -----------------------
-
-$primary-font: "Barlow", serif;
-$secondary-font: "Fraunces", serif;
-
-$soft-red: hsl(7, 99%, 70%);
-$yellow: hsl(51, 100%, 49%);
-$dark-desaturated-cyan: hsl(167, 40%, 24%);
-$dark-blue: hsl(198, 62%, 26%);
-$dark-moderate-cyan: hsl(168, 34%, 41%);
-$very-dark-desaturated-blue: hsl(212, 27%, 19%);
-$very-dark-grayish-blue: hsl(213, 9%, 39%);
-$dark-grayish-blue: hsl(232, 10%, 55%);
-$grayish-blue: hsl(210, 4%, 67%);
-$white: hsl(0, 0%, 100%);
-$footer-bg: hsla(168, 34%, 41%, 0.6);
-$contact-btn-hover: hsla(0, 0%, 100%, 0.5);
-
-// -------------------- SCSS Function ------------------------
-
-@function calculateFontSize($value) {
-  $screenSize: 80; // in rem
-  @return (100 / $screenSize) * $value;
-}
-
-
 *,
 *::after,
 *::before {
@@ -41,7 +13,7 @@ body,
 html {
   font-size: 18px;
   font-weight: 400;
-  font-family: $primary-font;
+  font-family: "Barlow", serif;
   scroll-behavior: smooth;
   line-height: 1.5;
 }
@@ -58,7 +30,7 @@ p {
 
 h1,
 h2 {
-  font-family: $secondary-font;
+  font-family: "Fraunces", serif;
 }
 
 ul {
@@ -115,14 +87,13 @@ nav {
 
 .nav__link {
   text-decoration: none;
-  color: $white;
+  color: hsl(0, 0%, 100%);
   font-weight: 600;
   font-size: 1rem;
   transition: color 0.3s ease;
-
-  &:hover {
-    color: $yellow;
-  }
+}
+.nav__link:hover {
+  color: hsl(51, 100%, 49%);
 }
 
 .nav__hamburger {
@@ -135,45 +106,36 @@ nav {
 
 .btn {
   padding: 0.6rem 1.5rem;
-  background-color: $white;
-  color: $dark-desaturated-cyan;
-  font-family: $secondary-font;
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(167, 40%, 24%);
+  font-family: "Fraunces", serif;
   border-radius: 2.5rem;
-
-  &:hover {
-    background-color: $contact-btn-hover;
-    color: $white;
-  }
 }
-
-// -------------------- Hero Section ------------------------
+.btn:hover {
+  background-color: hsla(0, 0%, 100%, 0.5);
+  color: hsl(0, 0%, 100%);
+}
 
 .hero__section {
   position: relative;
-
-  h1 {
-    text-align: center;
-    margin-top: 5rem;
-    font-size: clamp(2.4rem, #{calculateFontSize(2.8)}vw, 2.8rem);
-    text-transform: uppercase;
-    color: $white;
-    letter-spacing: 0.6rem;
-  }
-
-  .hero__arrow-down {
-    position: absolute;
-    top: 160%;
-    left: 50%;
-    transform: translateX(-50%);
-  }
 }
-
-
-// ---------------- Transform Section ------------------
+.hero__section h1 {
+  text-align: center;
+  margin-top: 5rem;
+  font-size: clamp(2.4rem, 3.5vw, 2.8rem);
+  text-transform: uppercase;
+  color: hsl(0, 0%, 100%);
+  letter-spacing: 0.6rem;
+}
+.hero__section .hero__arrow-down {
+  position: absolute;
+  top: 160%;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
 .transform__section {
   display: flex;
-  // align-items: center;
   justify-content: space-between;
   max-width: 100%;
   margin: 0 auto;
@@ -198,33 +160,30 @@ nav {
 
 .transform__left div,
 .stand-out__left div {
-  color: $grayish-blue;
+  color: hsl(210, 4%, 67%);
   font-size: 1rem;
   line-height: 1.2;
 }
 
 .transform__left p,
 .stand-out__left p {
-  font-family: $secondary-font;
+  font-family: "Fraunces", serif;
   margin-top: 1.2rem;
 }
 
 .transform__left p span {
-  border: 0.2rem solid $yellow;
+  border: 0.2rem solid hsl(51, 100%, 49%);
   opacity: 50%;
   border-radius: 4rem;
   display: block;
   width: 5.5rem;
   height: 2px;
   margin-top: -0.5rem;
-
-  &:hover{
-    opacity: 100%;
-    cursor: pointer;
-  }
 }
-
-
+.transform__left p span:hover {
+  opacity: 100%;
+  cursor: pointer;
+}
 
 .transform__right,
 .stand-out__right {
@@ -238,37 +197,26 @@ nav {
   height: auto;
 }
 
-// Standout Section
-
 .stand-out__section {
   display: flex;
   flex-direction: row-reverse;
-  // align-items: center;
   justify-content: space-between;
   max-width: 100%;
   margin: 0 auto;
-
-  .stand-out__left {
-    p {
-      span {
-        border: .2rem solid $soft-red;
-        opacity: 50%;
-        border-radius: 4rem;
-        display: block;
-        width: 5.5rem;
-        height: 2px;
-        margin-top: -.5rem;
-        &:hover{
-          opacity: 100%;
-          cursor: pointer;
-        }
-      }
-    }
-  }
 }
-
-
-// --------------- Graphic Photography Section --------------------
+.stand-out__section .stand-out__left p span {
+  border: 0.2rem solid hsl(7, 99%, 70%);
+  opacity: 50%;
+  border-radius: 4rem;
+  display: block;
+  width: 5.5rem;
+  height: 2px;
+  margin-top: -0.5rem;
+}
+.stand-out__section .stand-out__left p span:hover {
+  opacity: 100%;
+  cursor: pointer;
+}
 
 .graphic-photography__section {
   display: flex;
@@ -297,7 +245,8 @@ nav {
 .img-photography__right img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .mobileimg-photography__right,
@@ -317,7 +266,7 @@ nav {
 }
 
 .text-graphic__left {
-  color: $dark-desaturated-cyan;
+  color: hsl(167, 40%, 24%);
 }
 
 .text-photography__right {
@@ -337,71 +286,56 @@ nav {
   line-height: 1.2;
 }
 
-
-// ------------------- Testimonials Section --------------------
-
 .testimonials__section {
   padding: 2.2rem 1.11rem;
   text-align: center;
-
-  h1 {
-    font-size: 1.5rem;
-    margin-bottom: 1.7rem;
-    margin-top: 2.5rem;
-    letter-spacing: 0.4rem;
-    text-transform: uppercase;
-    color: $grayish-blue;
-  }
-
-  .testimonials__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(15.6rem, 1fr));
-    gap: 1.7rem;
-    max-width: 66.7rem;
-    margin: 0 auto;
-  }
-
-  .card-testimonials__grid {
-    padding: 1.1rem;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    img {
-      width: 4.5rem;
-      height: 4.5rem;
-      border-radius: 50%;
-      margin-bottom: 1rem;
-      object-fit: cover;
-    }
-
-    p {
-      font-size: 1rem;
-      color: $very-dark-desaturated-blue;
-      margin-bottom: 4rem;
-      line-height: 1.6;
-    }
-
-    .testimonial-author {
-      p {
-        margin: 0;
-        font-size: 0.8rem;
-        color: $grayish-blue;
-
-        &:first-child {
-          font-weight: 800;
-          font-family: $secondary-font;
-          color: $very-dark-desaturated-blue;
-        }
-      }
-    }
-  }
 }
-
-
-
-// --------------- Gallery Section ---------------------
+.testimonials__section h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1.7rem;
+  margin-top: 2.5rem;
+  letter-spacing: 0.4rem;
+  text-transform: uppercase;
+  color: hsl(210, 4%, 67%);
+}
+.testimonials__section .testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15.6rem, 1fr));
+  gap: 1.7rem;
+  max-width: 66.7rem;
+  margin: 0 auto;
+}
+.testimonials__section .card-testimonials__grid {
+  padding: 1.1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.testimonials__section .card-testimonials__grid img {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.testimonials__section .card-testimonials__grid p {
+  font-size: 1rem;
+  color: hsl(212, 27%, 19%);
+  margin-bottom: 4rem;
+  line-height: 1.6;
+}
+.testimonials__section .card-testimonials__grid .testimonial-author p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: hsl(210, 4%, 67%);
+}
+.testimonials__section .card-testimonials__grid .testimonial-author p:first-child {
+  font-weight: 800;
+  font-family: "Fraunces", serif;
+  color: hsl(212, 27%, 19%);
+}
 
 .gallery__section {
   display: flex;
@@ -418,148 +352,118 @@ nav {
 .gallery__img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: block;
 }
 
-
-// ------------------ Footer -------------------
-
 footer {
-  background-color: $footer-bg;
+  background-color: hsla(168, 34%, 41%, 0.6);
   padding: 2.5rem;
-
-  .footer__logo {
-    color: $dark-desaturated-cyan;
-    opacity: 80%;
-    font-weight: 800;
-    font-size: 2rem;
-    text-align: center;
-  }
-
-  ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    color: $dark-moderate-cyan;
-    margin-top: 2rem;
-  }
-
-  ul li:hover {
-    cursor: pointer;
-    color: $white;
-  }
-
-  .social-icon__footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 4rem;
-
-  }
-
-  .social-icon__footer img:hover {
-    fill: $white;
-    cursor: pointer;
-  }
+}
+footer .footer__logo {
+  color: hsl(167, 40%, 24%);
+  opacity: 80%;
+  font-weight: 800;
+  font-size: 2rem;
+  text-align: center;
+}
+footer ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  color: hsl(168, 34%, 41%);
+  margin-top: 2rem;
+}
+footer ul li:hover {
+  cursor: pointer;
+  color: hsl(0, 0%, 100%);
+}
+footer .social-icon__footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 4rem;
+}
+footer .social-icon__footer img:hover {
+  fill: hsl(0, 0%, 100%);
+  cursor: pointer;
 }
 
 /* ---------------- Responsive -------------------*/
-
-
-
 @media (max-width: 768px) {
   .nav__hamburger {
     display: block;
   }
-
   .nav__links {
     display: none;
   }
-
   .nav__container {
     flex-direction: column;
     align-items: flex-start;
   }
-
   .nav__list {
     flex-direction: column;
     margin-top: 1rem;
     width: 100%;
   }
-
   .nav__item {
     margin-left: 0;
     margin-bottom: 1rem;
   }
-
   .nav__links.nav__links--active {
     display: block;
   }
-
   .hero__section h1 {
     font-size: 2.2rem;
   }
-
   .hero__section .hero__arrow-down {
     top: 140%;
   }
-
   .transform__section,
   .stand-out__section {
     flex-direction: column-reverse;
   }
-
   .transform__left,
   .transform__right,
   .stand-out__left,
   .stand-out__right {
     max-width: 100%;
   }
-
   .transform__left,
   .stand-out__left {
     max-width: 100%;
     padding: 2rem;
   }
-
   .transform__left h1,
   .stand-out__left h1 {
     font-size: 2rem;
   }
-
   .transform__left p,
-.stand-out__left p {
-  margin: auto;
-}
-
+  .stand-out__left p {
+    margin: auto;
+  }
   .graphic-photography__section {
     flex-direction: column;
     align-items: normal;
   }
-
-  .desktopimg-graphic__left{
+  .desktopimg-graphic__left {
     display: flex;
   }
-
   .graphic-photography__left,
   .graphic-photography__right {
     max-width: 100%;
   }
-
   .text-graphic__left,
   .text-photography__right {
     width: 80vw;
   }
-
   .gallery__grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
-
 @media (max-width: 480px) {
   .image__header {
     background-image: url("./images/mobile/image-header.jpg");
@@ -567,52 +471,42 @@ footer {
     background-size: contain;
     padding: 2rem 2rem;
   }
-
   .hero__section h1 {
     font-size: 1.8rem;
   }
-
   .hero__section .hero__arrow-down {
     top: 120%;
   }
-
   .transform__section .transform__right {
     margin-top: -14rem;
   }
-
   .transform__left,
   .stand-out__left {
     text-align: center;
     padding: 2rem;
   }
-
   .mobileimg-photography__right,
   .mobileimg-graphic__left {
     display: block;
   }
-
   .desktopimg-graphic__left,
   .desktopimg-photography__right {
     display: none;
   }
-
   .text-graphic__left,
   .text-photography__right {
     width: 95%;
   }
-
   .text-graphic__left h1,
   .text-photography__right h1 {
     font-size: 1.6rem;
   }
-
   .text-graphic__left p,
   .text-photography__right p {
     font-size: 0.9rem;
   }
-
   .testimonials__section h1 {
-    font-size: .9rem;
+    font-size: 0.9rem;
     letter-spacing: 0.2rem;
   }
-}
+}/*# sourceMappingURL=styles.css.map */
